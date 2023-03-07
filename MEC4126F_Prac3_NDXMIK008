@@ -29,7 +29,17 @@ void main(void)
 	init_LCD();
 
 	while(1)
+	{for (uint8_t i=0; i<=age_data.age; i++)/* for loop counts up to age in structure */
 	{
+		if (i<=age_data.age){
+		sprintf(display,"%d", i) /*puts counter variable into display string to be displayed on LCD */;
+		delay(80000);
+		lcd_command(CLEAR); /* clear LCD */
+		delay(80000);
+		lcd_putstring(display); /*Displays the string of the age counter */ }
+		else {age_data.age=0;} // Else statement ensures infinite loop 
+		}
+	}
 }
 
 // OTHER FUNCTIONS -----------------------------------------------------------|
